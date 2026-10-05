@@ -39,7 +39,7 @@ The security terminal (small screen) provides real-time feedback after every ful
 
 ## Wiring Instructions
 
-### 1. Power & Ground Bus
+### 1. Power & Ground
 * Connect Arduino **5V** to the **`+` (power) rail**.
 * Connect Arduino **GND** to the **`-` (ground) rail**.
 
