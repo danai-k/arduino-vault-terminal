@@ -1,11 +1,11 @@
 #ifndef WAVESHARE_LCD_H
 #define WAVESHARE_LCD_H
 
-#incluc:\Users\User\OneDrive\Έγγραφα\Arduino\sketch_oct4a\DigitalVault.inode <Arduino.h>
+#include <Arduino.h>
 #include <Wire.h>
 
 #define LCD_ADDR 0x3E  // Change to 0x27 if your screen uses 0x27
-c:\Users\User\OneDrive\Έγγραφα\Arduino\sketch_oct4a\VaultTerminal.ino
+
 void lcd_send_cmd(byte cmd) {
   Wire.beginTransmission(LCD_ADDR);
   Wire.write(0x80);
