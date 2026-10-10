@@ -4,13 +4,17 @@
 
 #define PIN_BUTTON 2
 #define CLEAR_BUTTON 3
-#define GREEN_LED 4
+#define GREEN_LED 6
 #define RED_LED 5
 #define BUZZER 7
+
+void victorySound();
 
 LiquidCrystal_I2C Biglcd(0x27, 20, 4);
 
 int prevDial = -1;
+int prevReading = -1;
+int dialValue = 0;
 int currStep = 0;
 int slots = 3;
 int Code[3];
@@ -48,18 +52,22 @@ void setup() {
 
 void loop() {
   // 1. POTENTIOMETER 
-  int value = analogRead(A0);
-
-  // convert value to desired limit
-  int dialValue = map(value, 0, 1023, 0, 99);
+  int reading = analogRead(A0);
 
   // short-term memory to prevent flickering
-  if ( dialValue != prevDial )
+  if (abs(reading - prevReading) > 5)
   {
+    prevReading = reading;
+    // convert value to desired limit
+    dialValue = map(reading, 0, 1023, 0, 99);
+
+    if ( dialValue != prevDial )
+    {
     Biglcd.setCursor(8, 2);
     Biglcd.print(dialValue);
     Biglcd.print(" ]        ");
     prevDial = dialValue;
+    }
   }
   delay(50);
 
@@ -100,8 +108,8 @@ void loop() {
       Biglcd.setCursor(0, 3);
       if (secretCode[0] == Code[0] && secretCode[1] == Code[1] && secretCode[2] == Code[2])
       {
-        digitalWrite(GREEN_LED, HIGH);
         Biglcd.print(">> ACCESS GRANTED <<");
+        victorySound();
       }
       else 
       { 
@@ -149,4 +157,34 @@ void loop() {
     }
     delay(300);
   }
+}
+
+void victorySound(){
+  analogWrite(GREEN_LED, 50);
+  tone(BUZZER, 523, 100);
+  delay(120);
+
+  analogWrite(GREEN_LED, 150);
+  tone(BUZZER, 659, 100);
+  delay(120);
+
+  analogWrite(GREEN_LED, 255);
+  tone(BUZZER, 784, 100);
+  delay(150);
+
+  tone(BUZZER, 1047);
+
+  for (int i = 255; i >= 50; i -= 2) 
+  {
+    analogWrite(GREEN_LED, i);
+    delay(4);
+  }
+  for (int i = 50; i <= 255; i += 2) 
+  {
+    analogWrite(GREEN_LED, i);
+    delay(4);
+  }
+        
+  noTone(BUZZER);              
+  analogWrite(GREEN_LED, 255); 
 }
