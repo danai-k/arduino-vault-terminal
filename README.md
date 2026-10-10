@@ -1,5 +1,7 @@
 # Arduino Digital Vault & Security Terminal
 
+https://github.com/user-attachments/assets/cb6c26ef-1367-4229-ba59-7a3c221a6508
+
 An interactive, dual-screen vault hacking game built with an Arduino. This project simulates a high-security physical vault using a potentiometer as a rotary dial, complete with array-based memory, and physical hardware feedback (LEDs and a buzzer alarm). 
 This project demonstrates the ability to manage multiple I2C devices simultaneously, mixing a standard PCF8574 controller (2004A LCD) with a custom AiP31068 controller (Waveshare 1602 LCD).
 
