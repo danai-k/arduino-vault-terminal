@@ -10,6 +10,7 @@ This project demonstrates the ability to manage multiple I2C devices simultaneou
 * **Dual-Display I2C Architecture:** Runs a primary 2004A "Vault Door" interface and a secondary LCD1602 "Security Guard" terminal simultaneously on the same A4/A5 pins.
 * **Logic Puzzle:** Features a Wordle-style hint system to guide the user toward the correct 3-digit combination.
 * **Permanent Lockout:** A fail-state loop that permanently disables the keypad and triggers an alarm if the user runs out of attempts, requiring a hard hardware reboot.
+* **Synchronized Fanfare:** Combines precise buzzer frequencies with a fading LED via Pulse Width Modulation (PWM), to create a victory sound when the vault opens.
 
 ---
 
@@ -59,7 +60,7 @@ Both screens share the same data lines!
 * **"Clear/Reset" Button:** Connect Leg 1 to Arduino Pin **3**. Connect Leg 2 to **GND**.
 
 ### 4. Audio / Visual Feedback (Outputs)
-* **Green LED (Access Granted):** Positive leg to Pin **4**. Negative leg through a resistor to **GND**.
+* **Green LED (Access Granted):** Positive leg to Pin **6**. Negative leg through a resistor to **GND**.
 * **Red LED (Access Denied / Lockout):** Positive leg to Pin **5**. Negative leg through a resistor to **GND**.
 * **Buzzer:** Positive leg to Pin **7**. Negative leg to **GND**.
 
