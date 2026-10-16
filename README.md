@@ -79,21 +79,17 @@ arduino-vault-terminal/
 
 ---
 
-## How to Install and Run
+## How to Run
 
-1. **Clone or Download** this repository:
-   ```bash
-   git clone [https://github.com/YOUR-USERNAME/arduino-vault-terminal.git](https://github.com/YOUR-USERNAME/arduino-vault-terminal.git)
-   ```
-2. Open `VaultTerminal.ino` in the **Arduino IDE**.
-3. Ensure `WaveshareLCD.h` is located in the same directory as `VaultTerminal.ino` 
-4. Verify the I2C address in `WaveshareLCD.h` matches your module:
+1. Open `VaultTerminal.ino` in the **Arduino IDE**.
+2. Ensure `WaveshareLCD.h` is located in the same directory as `VaultTerminal.ino` 
+3. Verify the I2C address in `WaveshareLCD.h` matches your module:
    ```cpp
    #define LCD_ADDR 0x3E  // Default Waveshare address (change to 0x27 if needed)
    ```
-5. Select your Board (e.g., **Arduino Uno**) under **Tools > Board**.
-6. Select your COM port under **Tools > Port**.
-7. Click **Upload**.
+4. Select your Board (e.g., **Arduino Uno**) under **Tools > Board**.
+5. Select your COM port under **Tools > Port**.
+6. Click **Upload**.
 
 ---
 
